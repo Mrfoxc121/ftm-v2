@@ -145,7 +145,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-xs text-slate-400 mb-10">
-        Copyright © 2024 Full Throttle Maps. All rights reserved.
+        Copyright © 2024 Full Throttle Garage. All rights reserved.
       </p>
     </motion.div>
   );
