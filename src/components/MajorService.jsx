@@ -32,10 +32,12 @@ const MajorService = () => {
       <div className="mb-5">
         <div className="flex justify-between items-center">
           <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-stone-300 mb-4">
-            Major Service: {' '}
-            <span className="text-slate-100">£89</span>
+            Major Service: <span className="text-slate-100">£89</span>
           </h3>
-          <ToggleButton showDetails={showDetails} toggleShowDetails={toggleShowDetails} />
+          <ToggleButton
+            showDetails={showDetails}
+            toggleShowDetails={toggleShowDetails}
+          />
         </div>
         <p className="text-slate-300 text-sm md:text-md lg:text-lg">
           The Major Service is the most comprehensive package we offer,
@@ -65,7 +67,7 @@ const MajorService = () => {
             "Tyre wear/condition",
             "Washer Jets",
             "Lubricate door hinges",
-            "Shock Absorbers"
+            "Shock Absorbers",
           ].map((text, index) => (
             <ServiceDetail key={index} text={text} />
           ))}
@@ -86,7 +88,7 @@ const MajorService = () => {
             "Tyre pressures checked and adjusted",
             "Check propshaft/drive shaft, joints and gaiters",
             "Check suspension springs",
-            "Check shock absorbers"
+            "Check shock absorbers",
           ].map((text, index) => (
             <ServiceDetail key={index} text={text} />
           ))}
@@ -108,7 +110,7 @@ const MajorService = () => {
             "Visual inspection of drive belts",
             "Check timing/cam belt (Interval check only)",
             "Replace spark plugs (Petrol Vehicles only)",
-            "Lubricate bonnet latch and hinges"
+            "Lubricate bonnet latch and hinges",
           ].map((text, index) => (
             <ServiceDetail key={index} text={text} />
           ))}
@@ -121,7 +123,7 @@ const MajorService = () => {
             "Engine noises",
             "Check Clutch",
             "Exhausts operation",
-            "Steering"
+            "Steering",
           ].map((text, index) => (
             <ServiceDetail key={index} text={text} />
           ))}
@@ -132,7 +134,7 @@ const MajorService = () => {
           {[
             "Recheck engine oil levels",
             "Check/adjust wheel nut torque",
-            "Service book stamped"
+            "Service book stamped",
           ].map((text, index) => (
             <ServiceDetail key={index} text={text} />
           ))}

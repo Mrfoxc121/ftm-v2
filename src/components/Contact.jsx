@@ -28,7 +28,7 @@ const Contact = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "1.33 1"],
+    offset: ["0 1", "1 1"],
   });
 
   const handleInputChange = (e) => {
@@ -60,7 +60,12 @@ const Contact = () => {
     };
 
     try {
-      const res = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      const res = await emailjs.send(
+        serviceID,
+        templateID,
+        templateParams,
+        publicKey
+      );
       console.log(res);
       toast.success("Email sent successfully!");
 
@@ -80,79 +85,83 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
+    <div
       id="contact"
-      ref={ref}
-      style={{
-        opacity: scrollYProgress,
-        scale: scrollYProgress,
-      }}
-      className="bg-gradient-to-tl from-slate-800 via-slate-900 to-slate-800 hover:bg-gradient-to-tl hover:from-slate-800/40 hover:via-slate-900/40 hover:to-slate-800/40 transition-all duration-500 ring-1 hover:ring-2 ring-inset ring-slate-700 lg:col-start-2 col-span-12 lg:col-span-6 row-span-2 shadow-sm shadow-slate-700 flex flex-col justify-center items-center p-4 rounded-xl"
+      className="gap-10 lg:col-start-2 col-span-12 lg:col-span-6 row-span-2 flex flex-col justify-center items-center"
     >
-      <h2 className="text-3xl font-bold text-white my-10 font-lato tracking-wide">
-        Contact Us
-      </h2>
-      <div className="w-[90%] md:w-[60%] lg:w-[70%]">
-        <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
-          <InputField
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={handleInputChange}
-            name="name"
-          />
-          <InputField
-            type="text"
-            placeholder="Tel"
-            value={tel}
-            onChange={handleInputChange}
-            name="tel"
-          />
-          <InputField
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleInputChange}
-            name="email"
-          />
-          <div className="flex gap-2 my-2">
+      <motion.div
+        ref={ref}
+        style={{
+          opacity: scrollYProgress,
+          scale: scrollYProgress,
+        }}
+        className="bg-gradient-to-tl from-slate-800 via-slate-900 to-slate-800 hover:bg-gradient-to-tl hover:from-slate-800/40 hover:via-slate-900/40 hover:to-slate-800/40 transition-all duration-500 ring-1 hover:ring-2 ring-inset ring-slate-700  shadow-sm shadow-slate-700 p-4 rounded-xl"
+      >
+        <h2 className="text-3xl font-bold text-white my-10 font-lato tracking-wide">
+          Contact Us
+        </h2>
+        <div className="w-[90%] md:w-[60%] lg:w-[70%]">
+          <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
             <InputField
               type="text"
-              placeholder="Model"
-              value={model}
+              placeholder="Name"
+              value={name}
               onChange={handleInputChange}
-              name="model"
+              name="name"
             />
             <InputField
               type="text"
-              placeholder="Reg"
-              value={reg}
+              placeholder="Tel"
+              value={tel}
               onChange={handleInputChange}
-              name="reg"
+              name="tel"
             />
-          </div>
-          <textarea
-            className="w-full mb-2 py-2 px-6 rounded-md text-slate-100 bg-slate-700 placeholder:text-slate-100"
-            placeholder="Write your problem here"
-            value={message}
-            onChange={handleInputChange}
-            rows="6"
-            name="message"
-          ></textarea>
-          <motion.button
-            whileHover={{
-              scale: 1.01,
-              textShadow: "0px 0px 4px rgb(255,255,255)",
-              boxShadow: "0px 0px 4px rgb(255,255,255)",
-            }}
-            className="py-3 px-6 bg-slate-100 hover:bg-white text-slate-900 font-bold rounded-lg text-sm w-full mb-6"
-          >
-            Send
-          </motion.button>
-          <ToastContainer />
-        </form>
-      </div>
-    </motion.div>
+            <InputField
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleInputChange}
+              name="email"
+            />
+            <div className="flex gap-2 my-2">
+              <InputField
+                type="text"
+                placeholder="Model"
+                value={model}
+                onChange={handleInputChange}
+                name="model"
+              />
+              <InputField
+                type="text"
+                placeholder="Reg"
+                value={reg}
+                onChange={handleInputChange}
+                name="reg"
+              />
+            </div>
+            <textarea
+              className="w-full mb-2 py-2 px-6 rounded-md text-slate-100 bg-slate-700 placeholder:text-slate-100"
+              placeholder="Write your problem here"
+              value={message}
+              onChange={handleInputChange}
+              rows="6"
+              name="message"
+            ></textarea>
+            <motion.button
+              whileHover={{
+                scale: 1.01,
+                textShadow: "0px 0px 4px rgb(255,255,255)",
+                boxShadow: "0px 0px 4px rgb(255,255,255)",
+              }}
+              className="py-3 px-6 bg-slate-100 hover:bg-white text-slate-900 font-bold rounded-lg text-sm w-full mb-6"
+            >
+              Send
+            </motion.button>
+            <ToastContainer />
+          </form>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
